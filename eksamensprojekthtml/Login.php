@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -14,18 +15,18 @@
         <div class="text Dozmatnav"><h1 style="font-family: Eras Medium ITC; " class="Name"><a href="./index.html">DozMat</a><h1></div>
         <!-- <div class="firstParagrah"><h2>Dozmat</h2></div> -->
         <div class="text one"><h2><a href="./AboutUs.html">Om os</a></h2></div>
-        <a href="./Login.html"><div class="text two" style="color: black;"><h2>Signin/Log ind</h2></div></a>
+        <a href="./Login.php"><div class="text two" style="color: black;"><h2>Signin/Log ind</h2></div></a>
          <div class= "line"></div>
     </div>
+    <?php
+        //mysql_connect("localhost","root","");
+        //mysql_select_db("login");
+        $conn = new mysqli("mini-eksamensprojekt","root","");
+        if($conn-> connect_error){
+            die("error: " . $conn->connect_error);
+        }
 
-
-     
-     <h2 id="Title" style="position: relative; top: 10px; left: 25px;">Om os</h2>
-     <div class="textAU" style="position: relative;left: 25px;"><p> Hjælpe lære, hvad er vores mål</p></div>
-
-    
-
-
-
+    ?>
 </body>
-    </html>
+
+</html>
