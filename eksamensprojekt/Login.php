@@ -19,16 +19,44 @@
         <div class= "line"></div>
     </div>
 
-    <form action ="/Login.php" method="post">
+    <form action ="/eksamensprojekt/Login.php" method="post">
     <div class="title"><h1>Log ind</h1></div>
         <table style="width: 400px;">
             <tr><td>Bruger:</td><td><input type="text" name="name"></input></td></tr>
-            <tr><td>Kode:</td><td><input type="Codetext" name="password"></input></td></tr>
+            <tr><td>Kode:</td><td><input type="password" name="password"></input></td></tr>
             <!--<tr><td><input type="submit" value="Submit"></td></tr>-->
-            <tr><td><input type="submit" value="Submit"></td></tr>
+            <tr><td><input type="submit" name="Login" value="Login"></input> </td></tr>
         </table>
-    </form>
-
+    </form> 
 </body>
-
 </html>
+
+<?php
+    $mysqli = new mysqli ("localhost","root","","mini-eksamensprojekt");
+    if ($mysqli -> connect_errno) {
+        echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+        exit();
+    }
+
+    if(isset($_POST['Login'])){ //If login buttion is clicked
+        $name=mysqli_real_escape_string($mysqli, $_POST['name']); //For at undgår sql injections
+        $password=mysqli_real_escape_string($mysqli, $_POST['password']);
+        $student="student";
+        $teacher="teacher";
+
+        $query_student="SELECT * FROM user WHERE name='$name' AND password='$password' AND role='$student';"; //select all from user where name is $name and password is $password 
+        $run_student = mysqli_query($mysqli, $query_student);
+        
+        $query_teacher="SELECT * FROM user WHERE name='$name' AND password='$password' AND role='$teacher';";
+        $run_teacher = mysqli_query($mysqli, $query_teacher);
+
+        if(mysqli_num_rows($run_student)==1){
+            echo "<script>window.open('student/student.php','_self')</script>";
+        }
+        else if(mysqli_num_rows($run_teacher)==1){
+            echo "<script>window.open('teacher/teacher.php','_self')</script>";
+        }
+
+    }
+
+?>
