@@ -1,4 +1,3 @@
-
 const quizData = [
     {
         question:"Isolér x i følgende ligning: 2/log(x) = 1",
@@ -55,7 +54,8 @@ function loadQuiz(){
     deselectAnswers()
 
     const currentQuizData = quizData[currentQuiz]
-
+console.log("AAAAAAAAAAAA: ");
+    console.log("AAAAAAAAAAAA: " + a_text.innerText);
     questionEl.innerText = currentQuizData.question
     a_text.innerText = currentQuizData.a
     b_text.innerText = currentQuizData.b

@@ -1,21 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
-.Imagebox img{
-    width: 400px;
-    height: 400px;
-
-    /*Center*/
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
+body{
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.textfront{
-    position: relative;
-    left: -17px;
-    padding-right: 20px;
-    width: 95%;
-    text-align: justify;
-    line-height: 30px;
-    font-size: 20px;
+
+main{
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+}
+
+main .container{
+    display: flex;
+    margin-top: 50px;
+}
+
+#main-title{
+    flex:3;
+    margin-right: 30px;
+}
+
+.main-text p{
+    font-family: 'Montserrat', 'sans-serif';
+}
+.image-box{
+    flex:2;
+}
+
+.image-box img{
+    width: 400px;
+    
 }
